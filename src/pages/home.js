@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 //Contains a hero image and text 
 export function Home() {
     //Contains title for title bar
-    const [title, setTitle] = useState("Home | Alyssa's Portfolio");
+    const [title, setTitle] = useState("Dev Career Personality Test");
 
     //Sets title in title bar and will run when page loads
     useEffect(() => {
