@@ -2,6 +2,8 @@
 import { Button } from 'reactstrap';
 import { useEffect, useState } from 'react';
 
+import { useNavigate } from "react-router-dom";
+
 //Shows the front page of the website
 //Contains a hero image and text 
 export function Test() {
@@ -73,14 +75,15 @@ export function Test() {
         setChoices(newChoices); 
     }
 
+    // function submitResults() {
+    //     return fetch(`${API_URL}/result/calculate`)
+    // }
+
     return (
         <>
             {questions.map((q, index) => {
                 let q_id = index + 1;
                 let answerList = answers[q_id]; 
-
-                //console.log(answers[q_id]); 
-                console.log(choices); 
 
                 return (
                     <>

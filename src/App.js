@@ -1,5 +1,3 @@
-import { Button } from "reactstrap";
-import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Home } from "./pages/home";
