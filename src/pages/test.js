@@ -13,7 +13,7 @@ export function Test() {
     const API_URL = "http://localhost:2000";
 
     function getQuestions() {
-        fetch(`${API_URL}/api/question`, {
+        return fetch(`${API_URL}/api/question`, {
             method: "GET",
             headers: {
                 "accept": "application/json",
@@ -21,12 +21,10 @@ export function Test() {
             }
         })
             .then((res) => res.json())
-            .then((res) => {
-                setQuestions(res.questions);
-            })
+            .then((res) => res.questions)
     }
 
-    //gets each answer by question ID 
+    //gets answers of each question ID 
     function getAnswers(id) {
 
         return fetch(`${API_URL}/api/answer/${id}`, {
@@ -37,27 +35,27 @@ export function Test() {
             }
         })
             .then((res) => res.json())
-            .then((res) => {
-                console.log(res.answers);
-                return res.answers;
-            })
+            .then((res) => res.answers)
     }
 
     useEffect(() => {
         document.title = title;
-        getQuestions();
-        //code fix by ChatGPT
-        //https://chatgpt.com/share/6739752e-5864-8000-97d3-f3acec76a330
-        //after getting questions, load all answers of each question 
-        questions.forEach((q, index) => {
-            let q_id = index + 1;
-
-            getAnswers(q_id).then((data) => {
-                //append current iteration's corresponding answers to list of answers
-                setAnswers((prev) => ({
-                    ...prev,
-                    [q_id]: data,
-                }));
+        //call getQuestions() then getAnswers()
+        getQuestions().then((questionData) => {
+            setQuestions(questionData);
+            //code fix by ChatGPT
+            //https://chatgpt.com/share/6739752e-5864-8000-97d3-f3acec76a330
+            //after getting questions, load all answers of each question 
+            questionData.forEach((q, index) => {
+                let q_id = index + 1;
+    
+                getAnswers(q_id).then((data) => {
+                    //append current iteration's corresponding answers to list of answers
+                    setAnswers((prev) => ({
+                        ...prev,
+                        [q_id]: data,
+                    }));
+                });
             });
         });
     }, [title]);
@@ -66,20 +64,22 @@ export function Test() {
         <>
             {questions.map((q, index) => {
                 let q_id = index + 1;
-                // let answers;
-                // getAnswers(q_id).then((data) => {
-                //     console.log(data[0].answer_text);
-                //     answers = data; 
-                //     console.log(answers); 
-                // })
-                // console.log(answers); 
+                let answerList = answers[q_id]; 
 
-                console.log(answers[q_id][0]); 
+                console.log(answers[q_id]); 
 
                 return (
                     <>
-                        <p>{q.question_text}</p>
-                        <p>{answers[q_id][0].answer_text}</p>
+                        <br /> 
+                        <p>{q_id}. {q.question_text}</p>
+                        {
+                            answerList?.map((answer, index) => (
+                                <p>
+                                    <input type="radio" name={q.question_text} value={answer.letter_of_choice} id={index} /> &nbsp;
+                                    <label htmlFor={index}>{answer.letter_of_choice}. {answer.answer_text}</label>
+                                </p>
+                            ))
+                        }
                     </>
                 );
             })}
