@@ -1,5 +1,5 @@
 
-import { Button, Card, CardTitle } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { useEffect, useState } from 'react';
 
 //Shows the front page of the website
@@ -9,6 +9,7 @@ export function Test() {
     const [title, setTitle] = useState("Dev Career Personality Test");
     const [questions, setQuestions] = useState([]);
     const [answers, setAnswers] = useState({});
+    const [choices, setChoices] = useState(['']); 
 
     const API_URL = "http://localhost:2000";
 
@@ -48,6 +49,8 @@ export function Test() {
             //after getting questions, load all answers of each question 
             questionData.forEach((q, index) => {
                 let q_id = index + 1;
+
+                setChoices((prev) => [...prev, '']); 
     
                 getAnswers(q_id).then((data) => {
                     //append current iteration's corresponding answers to list of answers
@@ -60,13 +63,24 @@ export function Test() {
         });
     }, [title]);
 
+    function onOptionChange(item, userChoice) {
+        const newChoices = choices.map((choice, index) => {
+            if(index + 1 === item) return userChoice; 
+            else return choice; 
+        }); 
+
+        console.log(newChoices); 
+        setChoices(newChoices); 
+    }
+
     return (
         <>
             {questions.map((q, index) => {
                 let q_id = index + 1;
                 let answerList = answers[q_id]; 
 
-                console.log(answers[q_id]); 
+                //console.log(answers[q_id]); 
+                console.log(choices); 
 
                 return (
                     <>
@@ -75,8 +89,8 @@ export function Test() {
                         {
                             answerList?.map((answer, index) => (
                                 <p>
-                                    <input type="radio" name={q.question_text} value={answer.letter_of_choice} id={index} /> &nbsp;
-                                    <label htmlFor={index}>{answer.letter_of_choice}. {answer.answer_text}</label>
+                                    <input type="radio" name={q.question_text} value={answer.letter_of_choice} id={`${q_id}-${index}`} onChange={() => onOptionChange(q_id, answer.letter_of_choice)}/> &nbsp;
+                                    <label htmlFor={`${q_id}-${index}`}>{answer.letter_of_choice}. {answer.answer_text}</label>
                                 </p>
                             ))
                         }
