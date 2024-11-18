@@ -19,7 +19,7 @@ export function Results() {
 
     return (
         <>
-            <h2>Results</h2>
+            <h2 className='results'>Results</h2>
             <p>{result}</p>
         </>
     );

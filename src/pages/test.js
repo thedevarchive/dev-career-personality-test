@@ -115,7 +115,7 @@ export function Test() {
                     </>
                 );
             })}
-            <Button id="resultsButton" onClick={submitResults}>See Results</Button>
+            <Button className="bigButton" onClick={submitResults}>See Results</Button>
         </>
     );
 }

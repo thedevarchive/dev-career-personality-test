@@ -19,7 +19,7 @@ export function Home() {
             <h2>Want to be a part of the tech industry but don't know which career path to take?</h2>
             <p>Maybe this can help you.</p>
             <p>Simply press the button below to take a test that will determine the IT career that suits you based on your personality. For best results, answer all questions honestly.</p>
-            <Button className="heroButton" href="/test">TAKE THE TEST</Button>
+            <Button className="bigButton" href="/test">TAKE THE TEST</Button>
         </>
     );
 }
