@@ -75,9 +75,24 @@ export function Test() {
         setChoices(newChoices); 
     }
 
-    // function submitResults() {
-    //     return fetch(`${API_URL}/result/calculate`)
-    // }
+    const navigate = useNavigate();
+
+    async function submitResults() {
+
+        console.log("aaaa"); 
+        let result = await fetch(`${API_URL}/result/calculate`, {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify({answers: choices})
+        })
+        .then((res) => res.json()); 
+
+        console.log(result);
+
+        navigate("/results", {state: result}); 
+    }
 
     return (
         <>
@@ -100,6 +115,7 @@ export function Test() {
                     </>
                 );
             })}
+            <Button id="resultsButton" onClick={submitResults}>See Results</Button>
         </>
     );
 }

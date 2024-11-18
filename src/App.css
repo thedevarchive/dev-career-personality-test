@@ -34,7 +34,7 @@ p {
   color: white !important; 
 }
 
-.heroButton {
+button {
   background-color: #0071bc !important;
   border: none !important;
   border-radius: 30px !important;
@@ -43,4 +43,13 @@ p {
   font-weight: bold !important;
   text-decoration: none !important;
   width: 20% !important;
+}
+
+input[type="radio"] {
+  height: 25px; 
+  width: 25px;
+}
+
+#resultsButton {
+  margin-bottom: 20px !important;
 }
