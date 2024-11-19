@@ -30,7 +30,6 @@ export function DevCareers() {
         getCareers().then((data) => {
             setCareers(data);
         });
-        console.log(careers[0].career_name);
     }, [title]);
 
     return (

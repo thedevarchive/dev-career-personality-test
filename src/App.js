@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import { Home } from "./pages/home";
 import { Test } from "./pages/test";
@@ -11,6 +11,11 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const location = useLocation();
+
+  // Get the current pathname (e.g., "/home", "/results", etc.)
+  const currentPage = location.pathname;
+  console.log(currentPage);
 
   return (
     <div className="App">
@@ -18,12 +23,13 @@ function App() {
         <Navbar expand="md">
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/test">Components</NavLink>
+              <NavLink href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
+              <NavLink href={(currentPage === "/test") ? "#" : "/test"}>Career Test</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href={(currentPage === "/devCareers") ? "#" : "/devCareers"}>Developer Careers</NavLink>
             </NavItem>
           </Nav>
         </Navbar>
