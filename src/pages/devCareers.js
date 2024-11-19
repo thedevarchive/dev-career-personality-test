@@ -37,17 +37,6 @@ export function DevCareers() {
         <>
             <h2>Careers</h2>
             <Grid2 className="gridContainer" container spacing={2}>
-                {/* <Grid2 size={4}>
-                    <Card className="careerCard">
-                        <CardTitle>Test</CardTitle>
-                    </Card> 
-                </Grid2>
-                <Grid2  size={4}>
-                    <Card className="careerCard">{careers[0].career_name}</Card>
-                </Grid2>
-                <Grid2 size={4}>
-                    <Card className="careerCard">size 4</Card>
-                </Grid2> */}
                 {
                     careers.map((career) => {
                         return (

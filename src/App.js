@@ -4,6 +4,7 @@ import { Home } from "./pages/home";
 import { Test } from "./pages/test";
 import { Results } from "./pages/results";
 import { DevCareers } from "./pages/devCareers";
+import { Nav, Navbar, NavItem, NavLink } from "reactstrap";
 
 import './App.css';
 
