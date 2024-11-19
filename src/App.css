@@ -14,11 +14,19 @@
 
 .App-link, .App-link:visited {
   text-decoration: none;
-  color: #001695;
+  color: #00004e;
+}
+
+.navbar {
+  background-color: #001695 !important;
 }
 
 .nav-item:not(:first-child) {
   margin-left: 50px !important;
+}
+
+.nav-link {
+  color: white !important;
 }
 
 button {
@@ -26,7 +34,7 @@ button {
 }
 
 button, h1, h2, h3, h4 {
-  margin-top: 15px !important;
+  margin-top: 50px !important;
   font-weight: bold !important;
   color: white !important; 
 }
@@ -48,7 +56,7 @@ input[type="radio"] {
 }
 
 .bigButton {
-  background-color: #0071bc !important;
+  background-color: #001695 !important;
   border: none !important;
   border-radius: 30px !important;
   color: white !important;
