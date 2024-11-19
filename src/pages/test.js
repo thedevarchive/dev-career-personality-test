@@ -12,6 +12,7 @@ export function Test() {
     const [questions, setQuestions] = useState([]);
     const [answers, setAnswers] = useState({});
     const [choices, setChoices] = useState(['']); 
+    const [error, setError] = useState(); 
 
     const API_URL = "http://localhost:2000";
 
@@ -89,9 +90,10 @@ export function Test() {
         })
         .then((res) => res.json()); 
 
-        console.log(result);
+        console.log(result.error);
 
-        navigate("/results", {state: result}); 
+        if(result.error) setError(result.message); 
+        else navigate("/results", {state: result}); 
     }
 
     return (
@@ -116,6 +118,7 @@ export function Test() {
                     </>
                 );
             })}
+            <p className='error'>{error != "" ? "Make sure to answer all questions." : ""} <br /> {error}</p>
             <Button className="bigButton" onClick={submitResults}>See Results</Button>
         </>
     );

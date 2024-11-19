@@ -3,18 +3,13 @@
 }
 
 .App-header {
-  background-color: mediumseagreen;
+  background-color: #67ff56;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #333333 !important;
   overflow-x: hidden;
-}
-
-.App-link, .App-link:visited {
-  text-decoration: none;
-  color: #00004e;
 }
 
 .navbar {
@@ -36,7 +31,7 @@ button {
 button, h1, h2, h3, h4 {
   margin-top: 50px !important;
   font-weight: bold !important;
-  color: white !important; 
+  color: #00004e !important; 
 }
 
 h2.results {
@@ -47,12 +42,17 @@ p {
   padding-left: 7rem;
   padding-right: 7rem;
   line-height: 2.5rem;
-  color: white !important; 
+  color: #00004e !important; 
 }
 
 input[type="radio"] {
   height: 25px; 
   width: 25px;
+}
+
+.error {
+  margin: 0 !important;
+  color: maroon !important;
 }
 
 .bigButton {
@@ -71,13 +71,18 @@ input[type="radio"] {
   padding: 10px;
 }
 
-.careerCard {
+.card {
+  background-color: #001695 !important; 
   margin: 0 !important;
+}
+
+.card-title {
+  color: white !important;
 }
 
 p.card-text {
   font-size: 18px !important;
-  color: black !important;
+  color: white !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
 }
