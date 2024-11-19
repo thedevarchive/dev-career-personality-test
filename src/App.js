@@ -10,6 +10,10 @@ import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const activeStyle = {
+  fontWeight: "bold"
+};
+
 function App() {
   const location = useLocation();
 
@@ -23,13 +27,19 @@ function App() {
         <Navbar expand="md">
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href="/" style={(currentPage === "/") ? activeStyle : null}>
+                Home
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href={(currentPage === "/test") ? "#" : "/test"}>Career Test</NavLink>
+              <NavLink href={(currentPage === "/test") ? "#" : "/test"} style={(currentPage === "/test") ? activeStyle : null}>
+                Career Test
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href={(currentPage === "/devCareers") ? "#" : "/devCareers"}>Developer Careers</NavLink>
+              <NavLink href={(currentPage === "/devCareers") ? "#" : "/devCareers"} style={(currentPage === "/devCareers") ? activeStyle : null}>
+                Developer Careers
+              </NavLink>
             </NavItem>
           </Nav>
         </Navbar>

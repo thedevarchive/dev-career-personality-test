@@ -96,7 +96,7 @@ export function Test() {
 
     return (
         <>
-            <h2><em>Select the option that you would likely do in each situation. There are no right or wrong answers, so it is recommended you answer each item honestly.</em></h2>
+            <h2><em>For each question, select the option that fits you best. There are no right or wrong answers, so it is recommended you answer honestly.</em></h2>
             {questions.map((q, index) => {
                 let q_id = index + 1;
                 let answerList = answers[q_id]; 
