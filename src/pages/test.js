@@ -79,7 +79,7 @@ export function Test() {
 
     async function submitResults() {
 
-        console.log("aaaa"); 
+        //console.log("aaaa"); 
         let result = await fetch(`${API_URL}/result/calculate`, {
             method: "POST", 
             headers: {
