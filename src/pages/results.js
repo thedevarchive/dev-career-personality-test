@@ -15,7 +15,7 @@ const getCareer = async (code) => {
             "Content-Type": "application/json"
         }
     })
-        .then((res) => res.json())
+        .then((res) => res.json()); 
     
     console.log(careerMapping); 
   
@@ -53,8 +53,16 @@ export function Results() {
             <p>{career.work_environment}</p>
             <h4>Communication Style</h4>
             <p>{career.communication_style}</p>
-            <Button className='bigButton'>Retake Test</Button> <br/> 
-            <Button className='bigButton'>See all Results</Button>
+            <h4>Decision Making</h4>
+            <p>{career.decision_making}</p>
+            <h4>Conflict Handling</h4>
+            <p>{career.conflict_handling}</p>
+            <h4>Traits</h4>
+            <p>{career.traits}</p>
+            <h4>Common Languages and Tech Used</h4>
+            <p>{career.tech_stack}</p>
+            <Button className='bigButton' href="/test">Retake Test</Button> <br/> 
+            <Button className='bigButton' href="/devCareers">See All Careers</Button>
         </>
     );
 }

@@ -54,3 +54,18 @@ input[type="radio"] {
   width: 20% !important;
   margin-bottom: 20px !important;
 }
+
+.gridContainer {
+  padding: 10px;
+}
+
+.careerCard {
+  margin: 0 !important;
+}
+
+p.card-text {
+  font-size: 18px !important;
+  color: black !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
