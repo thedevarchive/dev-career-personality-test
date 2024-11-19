@@ -15,11 +15,23 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Navbar expand="md">
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href="/test">Components</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">
+                GitHub
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Navbar>
         <Routes>
-          <Route path="/" element={<Home />} /> 
+          <Route path="/" element={<Home />} />
           <Route path="test" element={<Test />} />
-          <Route path="results" element={<Results />} /> 
-          <Route path="devCareers" element={<DevCareers />} /> 
+          <Route path="results" element={<Results />} />
+          <Route path="devCareers" element={<DevCareers />} />
         </Routes>
       </header>
       <footer>Dev Career Personality Test is based on the project career-personality-test by peachnono on GitHub.</footer>
