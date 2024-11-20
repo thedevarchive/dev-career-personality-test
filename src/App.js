@@ -19,11 +19,12 @@ function App() {
 
   // Get the current pathname (e.g., "/home", "/results", etc.)
   const currentPage = location.pathname;
-  console.log(currentPage);
 
   return (
     <div className="App">
       <header className="App-header">
+        {/* Navbar is present on all pages
+            Item will be highlighted when user is on the item's corresponding page */}
         <Navbar expand="md">
           <Nav className="me-auto" navbar>
             <NavItem>
@@ -43,6 +44,7 @@ function App() {
             </NavItem>
           </Nav>
         </Navbar>
+        {/* List all pages here */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="takeTest" element={<CareerTest />} />
@@ -50,6 +52,7 @@ function App() {
           <Route path="devCareers" element={<DevCareers />} />
         </Routes>
       </header>
+      {/* Credit to peachnono (Nicole) for the idea */}
       <footer>Dev Career Personality Test is based on the project career-personality-test by peachnono on GitHub.</footer>
     </div>
   );

@@ -1,5 +1,5 @@
 
-import { Button, Card, CardTitle } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
