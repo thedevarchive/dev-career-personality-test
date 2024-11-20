@@ -62,7 +62,7 @@ export function Results() {
             <p>{career.traits}</p>
             <h4>Common Languages and Tech Used</h4>
             <p>{career.tech_stack}</p>
-            <Button className='bigButton' href="/test">Retake Test</Button> <br/> 
+            <Button className='bigButton' href="/takeTest">Retake Test</Button> <br/> 
             <Button className='bigButton' href="/devCareers">See All Careers</Button>
         </>
     );
