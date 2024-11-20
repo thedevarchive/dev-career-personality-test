@@ -3,11 +3,14 @@ import { Button, Card, CardTitle } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+//get career result based on returned career code after submission of test
 const getCareer = async (code) => {
     const API_URL = "http://localhost:2000";
 
+    //Fallback code when user accesses result page without taking test
     if(code === undefined) return {};
 
+    //API call to retrieve results 
     const careerMapping = await fetch(`${API_URL}/api/career/${code}`, {
         method: "GET",
         headers: {
@@ -16,14 +19,11 @@ const getCareer = async (code) => {
         }
     })
         .then((res) => res.json()); 
-    
-    console.log(careerMapping); 
   
-    return careerMapping || {}; // Fallback for unknown codes
+    return careerMapping; 
   };
 
-//Shows the front page of the website
-//Contains a hero image and text 
+//Show result of personality test
 export function Results() {
     //Contains title for title bar
     const [title, setTitle] = useState("Dev Career Personality Test");
@@ -32,15 +32,16 @@ export function Results() {
     const location = useLocation();
     const { result } = location.state || {};
 
-    //Sets title in title bar and will run when page loads
+    //Get result from previous page and 
     useEffect(() => {
-        async function getCareerDetails() {
-            setCareer(await getCareer(result)); 
-            document.title = title;
-        }
-        getCareerDetails(); 
+        getCareer(result).then((careerData) => {
+            setCareer(careerData); 
+            document.title = career.career_name || "Dev Career Personality Test";
+        });
     }, [title]);
 
+    //Show result to user 
+    //Result will contain more information on the career than in the devCareers page
     return (
         <>
             <h2 className='results'>Results</h2>

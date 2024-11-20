@@ -6,16 +6,17 @@ import { useNavigate } from "react-router-dom";
 
 //Shows the front page of the website
 //Contains a hero image and text 
-export function Test() {
+export function CareerTest() {
     //Contains title for title bar
     const [title, setTitle] = useState("Dev Career Personality Test");
     const [questions, setQuestions] = useState([]);
     const [answers, setAnswers] = useState({});
     const [choices, setChoices] = useState(['']); 
-    const [error, setError] = useState(); 
+    const [error, setError] = useState(""); 
 
     const API_URL = "http://localhost:2000";
 
+    //get all questions from DB
     function getQuestions() {
         return fetch(`${API_URL}/api/question`, {
             method: "GET",
@@ -28,7 +29,7 @@ export function Test() {
             .then((res) => res.questions)
     }
 
-    //gets answers of each question ID 
+    //gets answers of each question
     function getAnswers(id) {
 
         return fetch(`${API_URL}/api/answer/${id}`, {
@@ -42,6 +43,7 @@ export function Test() {
             .then((res) => res.answers)
     }
 
+    //load test when user navigates to this page
     useEffect(() => {
         document.title = title;
         //call getQuestions() then getAnswers()
@@ -66,6 +68,7 @@ export function Test() {
         });
     }, [title]);
 
+    //change the user's letter of choice on a given item 
     function onOptionChange(item, userChoice) {
         const newChoices = choices.map((choice, index) => {
             if(index + 1 === item) return userChoice; 
@@ -78,9 +81,9 @@ export function Test() {
 
     const navigate = useNavigate();
 
+    //submit results to DB 
     async function submitResults() {
-
-        //console.log("aaaa"); 
+        //get result from API
         let result = await fetch(`${API_URL}/result/calculate`, {
             method: "POST", 
             headers: {
@@ -88,17 +91,19 @@ export function Test() {
             }, 
             body: JSON.stringify({answers: choices})
         })
-        .then((res) => res.json()); 
+        .then((res) => res.json());
 
-        console.log(result.error);
-
+        //if user does not answer all the questions, error message will be displayed at the bottom of the screen 
+        //otherwise navigate to results page 
         if(result.error) setError(result.message); 
         else navigate("/results", {state: result}); 
     }
 
     return (
         <>
+            {/* Instructions for the test */}
             <h2><em>For each question, select the option that fits you best. There are no right or wrong answers, so it is recommended you answer honestly.</em></h2>
+            {/* List questions and choices here */}
             {questions.map((q, index) => {
                 let q_id = index + 1;
                 let answerList = answers[q_id]; 
@@ -106,7 +111,7 @@ export function Test() {
                 return (
                     <>
                         <br /> 
-                        <p>{q_id}. {q.question_text}</p>
+                        <p><strong>{q_id}. {q.question_text}</strong></p>
                         {
                             answerList?.map((answer, index) => (
                                 <p>
@@ -118,7 +123,8 @@ export function Test() {
                     </>
                 );
             })}
-            <p className='error'>{error != "" ? "Make sure to answer all questions." : ""} <br /> {error}</p>
+            {/* Error message will be displayed here */}
+            <p className='error'>{error !== "" ? "Make sure to answer all questions." : ""} <br /> {error}</p>
             <Button className="bigButton" onClick={submitResults}>See Results</Button>
         </>
     );

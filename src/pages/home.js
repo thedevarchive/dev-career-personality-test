@@ -2,8 +2,7 @@
 import { Button, Card, CardTitle } from 'reactstrap';
 import { useEffect, useState } from 'react';
 
-//Shows the front page of the website
-//Contains a hero image and text 
+//Home page
 export function Home() {
     //Contains title for title bar
     const [title, setTitle] = useState("Dev Career Personality Test");
@@ -19,8 +18,8 @@ export function Home() {
             <h2>Want to be a part of the tech industry but don't know which career path to take?</h2>
             <p>Maybe this can help you.</p>
             <p>Simply press the button below to take a test that will determine the IT career that suits you based on your personality. For best results, answer all questions honestly.</p>
-            <p><em>Disclaimer: This test does not intend to stereotype people in the IT industry; this test only serves to <strong>suggest</strong> an IT career for someone interested in working in that field.</em></p>
-            <Button className="bigButton" href="/test">TAKE THE TEST</Button>
+            <p><em>Disclaimer: This test does not intend to stereotype people in the IT industry; this test only serves to <strong>suggest</strong> an IT career for anyone interested in working in that field.</em></p>
+            <Button className="bigButton" href="/takeTest">TAKE THE TEST</Button>
         </>
     );
 }

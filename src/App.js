@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import { Home } from "./pages/home";
-import { Test } from "./pages/test";
+import { CareerTest } from "./pages/careerTest";
 import { Results } from "./pages/results";
 import { DevCareers } from "./pages/devCareers";
 import { Nav, Navbar, NavItem, NavLink } from "reactstrap";
@@ -32,7 +32,7 @@ function App() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href={(currentPage === "/test") ? "#" : "/test"} style={(currentPage === "/test") ? activeStyle : null}>
+              <NavLink href={(currentPage === "/takeTest") ? "#" : "/takeTest"} style={(currentPage === "/takeTest") ? activeStyle : null}>
                 Career Test
               </NavLink>
             </NavItem>
@@ -45,7 +45,7 @@ function App() {
         </Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="test" element={<Test />} />
+          <Route path="takeTest" element={<CareerTest />} />
           <Route path="results" element={<Results />} />
           <Route path="devCareers" element={<DevCareers />} />
         </Routes>
