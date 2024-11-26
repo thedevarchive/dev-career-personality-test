@@ -8,6 +8,9 @@ import { PiBracketsCurly, PiInfinityBold } from 'react-icons/pi';
 import { FiDatabase } from "react-icons/fi";
 import { ImStack } from "react-icons/im";
 import { BiJoystick } from "react-icons/bi";
+import { SiTicktick } from "react-icons/si";
+import { FaMobileAlt } from "react-icons/fa";
+import { SlLock } from "react-icons/sl";
 
 //mapping of icons to each result in the test
 const iconMapping = {
@@ -16,7 +19,10 @@ const iconMapping = {
     "Full Stack Developer": <ImStack size={70} />, 
     "DevOps Engineer": <PiInfinityBold size={70} />, 
     "Database Administrator": <FiDatabase size={70} />, 
-    "Game Developer": <BiJoystick size={70} />
+    "Game Developer": <BiJoystick size={70} />, 
+    "QA Tester": <SiTicktick size={70} />,
+    "Mobile App Developer": <FaMobileAlt size={70} />,
+    "Cyber Security Expert": <SlLock size={70} />,
 }; 
 
 //This page lists all possible results from taking the test
