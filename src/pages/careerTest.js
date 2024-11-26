@@ -12,7 +12,7 @@ export function CareerTest() {
     //Contains title for title bar
     const [title, setTitle] = useState("Dev Career Personality Test");
     const [choices, setChoices] = useState(['']);
-    const {loading, error, questions, answers } = useCareerTestApis();  
+    const {loading, loadingError, questions, answers } = useCareerTestApis();  
     //handles error messages for test validation 
     const [errorMessage, setErrorMessage] = useState(""); 
 

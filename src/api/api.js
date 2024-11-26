@@ -36,7 +36,7 @@ export function useCareerTestApis() {
     //repos and photos from the APIs
     //search for searching repositories
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [loadingError, setLoadingError] = useState(null);
     const [questions, setQuestions] = useState([]);
     const [answers, setAnswers] = useState({});
 
@@ -65,7 +65,7 @@ export function useCareerTestApis() {
                 setLoading(false);
             }, 500);
         } catch (err) {
-            setError(err);
+            setLoadingError(err);
 
             setTimeout(() => {
                 setLoading(false);
@@ -73,5 +73,5 @@ export function useCareerTestApis() {
         }
     }, []);
 
-    return { loading, error, questions, answers };
+    return { loading, loadingError, questions, answers };
 } 
