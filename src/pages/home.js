@@ -27,6 +27,7 @@ export function Home() {
             <p>Simply press the button below to take a test that will determine the IT career that suits you based on your personality. For best results, answer all questions honestly.</p>
             <p><em>Disclaimer: This test does not intend to stereotype people in the IT industry; this test only serves to <strong>suggest</strong> an IT career for anyone interested in working in that field.</em></p>
             <Button className="bigButton" href="/takeTest">TAKE THE TEST</Button>
+            {/* Icons at the bottom half of the page */}
             <CardGroup style={{marginTop: "10px"}}>
                 <IconContext.Provider value={{ color: "#00004e", size: 100 }}>
                     <Card className="homeCard"> <HiMiniCodeBracket /></Card>

@@ -3,6 +3,22 @@ import { Button } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { HiMiniCodeBracket } from "react-icons/hi2";
+import { PiBracketsCurly, PiInfinityBold } from 'react-icons/pi';
+import { FiDatabase } from "react-icons/fi";
+import { ImStack } from "react-icons/im";
+import { BiJoystick } from "react-icons/bi";
+
+//mapping of icons to each result in the test
+const iconMapping = {
+    "Front-End Developer": <HiMiniCodeBracket size={250} />, 
+    "Back-End Developer": <PiBracketsCurly size={250} />, 
+    "Full Stack Developer": <ImStack size={250} />, 
+    "DevOps Engineer": <PiInfinityBold size={250} />, 
+    "Database Administrator": <FiDatabase size={250} />, 
+    "Game Developer": <BiJoystick size={250} />
+}; 
+
 //get career result based on returned career code after submission of test
 const getCareer = async (code) => {
     const API_URL = "http://localhost:2000";
@@ -46,6 +62,7 @@ export function Results() {
         <>
             <h2 className='results'>Results</h2>
             <h3>{career.career_name}</h3>
+            <h4>{iconMapping[career.career_name]}</h4>
             <h4>Personality Description</h4>
             <p>{career.personality_description}</p>
             <h4>Motivation</h4>
