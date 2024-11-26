@@ -1,6 +1,13 @@
 
-import { Button, Card, CardTitle } from 'reactstrap';
+import { Button, CardGroup, Card } from 'reactstrap';
 import { useEffect, useState } from 'react';
+
+import { IconContext } from "react-icons";
+import { HiMiniCodeBracket } from "react-icons/hi2";
+import { PiBracketsCurly, PiInfinityBold } from 'react-icons/pi';
+import { FiDatabase } from "react-icons/fi";
+import { ImStack } from "react-icons/im";
+import { BiJoystick } from "react-icons/bi";
 
 //Home page
 export function Home() {
@@ -20,6 +27,16 @@ export function Home() {
             <p>Simply press the button below to take a test that will determine the IT career that suits you based on your personality. For best results, answer all questions honestly.</p>
             <p><em>Disclaimer: This test does not intend to stereotype people in the IT industry; this test only serves to <strong>suggest</strong> an IT career for anyone interested in working in that field.</em></p>
             <Button className="bigButton" href="/takeTest">TAKE THE TEST</Button>
+            <CardGroup style={{marginTop: "10px"}}>
+                <IconContext.Provider value={{ color: "#00004e", size: 100 }}>
+                    <Card className="homeCard"> <HiMiniCodeBracket /></Card>
+                    <Card className="homeCard"> <PiBracketsCurly /></Card>
+                    <Card className="homeCard"> <ImStack /></Card>
+                    <Card className="homeCard"> <PiInfinityBold /></Card>
+                    <Card className="homeCard"> <FiDatabase /></Card>
+                    <Card className="homeCard"> <BiJoystick /></Card>
+                </IconContext.Provider>
+            </CardGroup>
         </>
     );
 }

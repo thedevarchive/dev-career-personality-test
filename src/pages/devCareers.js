@@ -1,13 +1,15 @@
 
-import { Card, CardImg, CardText, CardTitle } from 'reactstrap';
+import { Card, CardText, CardTitle } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { Grid2 } from '@mui/material';
+
 import { HiMiniCodeBracket } from "react-icons/hi2";
 import { PiBracketsCurly, PiInfinityBold } from 'react-icons/pi';
 import { FiDatabase } from "react-icons/fi";
 import { ImStack } from "react-icons/im";
 import { BiJoystick } from "react-icons/bi";
 
+//mapping of icons to each result in the test
 const iconMapping = {
     "Front-End Developer": <HiMiniCodeBracket size={70} />, 
     "Back-End Developer": <PiBracketsCurly size={70} />, 
@@ -57,7 +59,7 @@ export function DevCareers() {
                         return (
                             <Grid2 size={4}>
                                 <Card className="careerCard">
-                                    <CardTitle>{career.career_name}</CardTitle>
+                                    <CardTitle className='ctStyle'><strong>{career.career_name}</strong></CardTitle>
                                     <CardText>{iconMapping[career.career_name] || " "}</CardText>
                                     <CardText className='cardText'>{career.personality_description}</CardText>
                                 </Card>

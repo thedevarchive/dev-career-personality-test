@@ -24,14 +24,16 @@
   color: white !important;
 }
 
-button {
-  background-color: #001695 !important;
-}
-
-button, h1, h2, h3, h4 {
+h1, h2, h3, h4 {
   margin-top: 50px !important;
   font-weight: bold !important;
   color: #00004e !important; 
+}
+
+.card.homeCard {
+  background-color: #67ff56;
+  border: none;
+  align-items: center;
 }
 
 h2.results {
@@ -55,30 +57,30 @@ input[type="radio"] {
   color: maroon !important;
 }
 
-.bigButton {
-  background-color: #001695 !important;
-  border: none !important;
-  border-radius: 30px !important;
-  color: white !important;
-  font-size: 26px !important;
-  font-weight: bold !important;
-  text-decoration: none !important;
-  width: 20% !important;
-  margin-bottom: 20px !important;
+.btn.bigButton {
+  background-color: #001695;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: none;
+  width: 20%;
+  margin-bottom: 20px;
 }
 
 .gridContainer {
   padding: 10px;
 }
 
-.card {
-  background-color: #001695 !important; 
-  margin: 0 !important;
-  min-height: 450px !important;
+.card.careerCard {
+  background-color: #001695; 
+  margin: 0;
+  min-height: 450px;
 }
 
-.card-title {
-  color: white !important;
+.card-title.ctStyle {
+  color: white;
 }
 
 p.card-text {
