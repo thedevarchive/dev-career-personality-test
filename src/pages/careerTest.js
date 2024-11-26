@@ -4,69 +4,27 @@ import { useEffect, useState } from 'react';
 
 import { useNavigate } from "react-router-dom";
 
+import { useCareerTestApis } from '../api/api';
+
 //Shows the front page of the website
 //Contains a hero image and text 
 export function CareerTest() {
     //Contains title for title bar
     const [title, setTitle] = useState("Dev Career Personality Test");
-    const [questions, setQuestions] = useState([]);
-    const [answers, setAnswers] = useState({});
-    const [choices, setChoices] = useState(['']); 
-    const [error, setError] = useState(""); 
+    const [choices, setChoices] = useState(['']);
+    const {loading, error, questions, answers } = useCareerTestApis();  
+    //handles error messages for test validation 
+    const [errorMessage, setErrorMessage] = useState(""); 
 
     const API_URL = "http://localhost:2000";
-
-    //get all questions from DB
-    function getQuestions() {
-        return fetch(`${API_URL}/api/question`, {
-            method: "GET",
-            headers: {
-                "accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        })
-            .then((res) => res.json())
-            .then((res) => res.questions)
-    }
-
-    //gets answers of each question
-    function getAnswers(id) {
-
-        return fetch(`${API_URL}/api/answer/${id}`, {
-            method: "GET",
-            headers: {
-                "accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        })
-            .then((res) => res.json())
-            .then((res) => res.answers)
-    }
 
     //load test when user navigates to this page
     useEffect(() => {
         document.title = title;
-        //call getQuestions() then getAnswers()
-        getQuestions().then((questionData) => {
-            setQuestions(questionData);
-            //code fix by ChatGPT
-            //https://chatgpt.com/share/6739752e-5864-8000-97d3-f3acec76a330
-            //after getting questions, load all answers of each question 
-            questionData.forEach((q, index) => {
-                let q_id = index + 1;
 
-                setChoices((prev) => [...prev, '']); 
-    
-                getAnswers(q_id).then((data) => {
-                    //append current iteration's corresponding answers to list of answers
-                    setAnswers((prev) => ({
-                        ...prev,
-                        [q_id]: data,
-                    }));
-                });
-            });
-        });
-    }, [title]);
+        const blankChoices = Array(questions.length).fill("");
+        setChoices(blankChoices);
+    }, [title, questions]);
 
     //change the user's letter of choice on a given item 
     function onOptionChange(item, userChoice) {
@@ -95,7 +53,7 @@ export function CareerTest() {
 
         //if user does not answer all the questions, error message will be displayed at the bottom of the screen 
         //otherwise navigate to results page 
-        if(result.error) setError(result.message); 
+        if(result.error) setErrorMessage(result.message); 
         else navigate("/results", {state: result}); 
     }
 
@@ -124,7 +82,7 @@ export function CareerTest() {
                 );
             })}
             {/* Error message will be displayed here */}
-            <p className='error'>{error !== "" ? "Make sure to answer all questions." : ""} <br /> {error}</p>
+            <p className='error'>{errorMessage !== "" ? "Make sure to answer all questions." : ""} <br /> {errorMessage}</p>
             <Button className="bigButton" onClick={submitResults}>See Results</Button>
         </>
     );

@@ -14,15 +14,15 @@ import { SlLock } from "react-icons/sl";
 
 //mapping of icons to each result in the test
 const iconMapping = {
-    "Front-End Developer": <HiMiniCodeBracket size={70} />, 
-    "Back-End Developer": <PiBracketsCurly size={70} />, 
-    "Full Stack Developer": <ImStack size={70} />, 
-    "DevOps Engineer": <PiInfinityBold size={70} />, 
-    "Database Administrator": <FiDatabase size={70} />, 
-    "Game Developer": <BiJoystick size={70} />, 
-    "QA Tester": <SiTicktick size={70} />,
-    "Mobile App Developer": <FaMobileAlt size={70} />,
-    "Cyber Security Expert": <SlLock size={70} />,
+    "Front-End Developer": <HiMiniCodeBracket size={250} />, 
+    "Back-End Developer": <PiBracketsCurly size={250} />, 
+    "Full Stack Developer": <ImStack size={250} />, 
+    "DevOps Engineer": <PiInfinityBold size={250} />, 
+    "Database Administrator": <FiDatabase size={250} />, 
+    "Game Developer": <BiJoystick size={250} />, 
+    "QA Tester": <SiTicktick size={250} />,
+    "Mobile App Developer": <FaMobileAlt size={250} />,
+    "Cyber Security Expert": <SlLock size={250} />,
 }; 
 
 //get career result based on returned career code after submission of test
