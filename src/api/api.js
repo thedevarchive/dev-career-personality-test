@@ -74,4 +74,28 @@ export function useCareerTestApis() {
     }, []);
 
     return { loading, loadingError, questions, answers };
-} 
+}
+
+//this function was created with the aid of ChatGPT 
+//https://chatgpt.com/share/6739752e-5864-8000-97d3-f3acec76a330
+export async function submitResults(choices) {
+    try {
+        const response = await fetch(`${API_URL}/result/calculate`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ answers: choices })
+        })
+            .then((res) => res.json());
+
+        if (response.error) {
+            throw new Error(response.message || "Something went wrong");
+        }
+
+        return response;
+    }
+    catch (err) {
+        throw err;
+    }
+}
