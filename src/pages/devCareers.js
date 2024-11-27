@@ -12,6 +12,8 @@ import { SiTicktick } from "react-icons/si";
 import { FaMobileAlt } from "react-icons/fa";
 import { SlLock } from "react-icons/sl";
 
+import { getAllCareers } from '../api/api';
+
 //mapping of icons to each result in the test
 const iconMapping = {
     "Front-End Developer": <HiMiniCodeBracket size={70} />, 
@@ -31,20 +33,7 @@ export function DevCareers() {
     const [title, setTitle] = useState("Careers in IT");
     const [careers, setCareers] = useState([]);
 
-    const API_URL = "http://localhost:2000";
-
     //get all possible results 
-    function getAllCareers() {
-        return fetch(`${API_URL}/api/careers`, {
-            method: "GET",
-            headers: {
-                "accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        })
-            .then((res) => res.json())
-            .then((res) => res.careers);
-    }
 
     useEffect(() => {
         document.title = title;

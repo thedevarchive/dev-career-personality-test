@@ -16,8 +16,6 @@ export function CareerTest() {
     //handles error messages for test validation 
     const [errorMessage, setErrorMessage] = useState("");
 
-    const API_URL = "http://localhost:2000";
-
     //load test when user navigates to this page
     useEffect(() => {
         document.title = title;
@@ -46,9 +44,7 @@ export function CareerTest() {
         setErrorMessage("");
 
         try {
-            console.log(choices);
             const result = await submitResults(choices);
-            console.log(result);
             navigate("/results", { state: result });
         }
         catch (err) {

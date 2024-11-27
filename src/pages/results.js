@@ -12,6 +12,8 @@ import { SiTicktick } from "react-icons/si";
 import { FaMobileAlt } from "react-icons/fa";
 import { SlLock } from "react-icons/sl";
 
+import { getCareer } from '../api/api';
+
 //mapping of icons to each result in the test
 const iconMapping = {
     "Front-End Developer": <HiMiniCodeBracket size={250} />, 
@@ -24,26 +26,6 @@ const iconMapping = {
     "Mobile App Developer": <FaMobileAlt size={250} />,
     "Cyber Security Expert": <SlLock size={250} />,
 }; 
-
-//get career result based on returned career code after submission of test
-const getCareer = async (code) => {
-    const API_URL = "http://localhost:2000";
-
-    //Fallback code when user accesses result page without taking test
-    if(code === undefined) return {};
-
-    //API call to retrieve results 
-    const careerMapping = await fetch(`${API_URL}/api/career/${code}`, {
-        method: "GET",
-        headers: {
-            "accept": "application/json",
-            "Content-Type": "application/json"
-        }
-    })
-        .then((res) => res.json()); 
-  
-    return careerMapping; 
-  };
 
 //Show result of personality test
 export function Results() {

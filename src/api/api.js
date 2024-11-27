@@ -99,3 +99,34 @@ export async function submitResults(choices) {
         throw err;
     }
 }
+
+//get career result based on returned career code after submission of test
+export async function getCareer(code) {
+    //Fallback code when user goes to result page without taking test
+    if(code === undefined) return {};
+
+    //API call to retrieve results 
+    const careerMapping = await fetch(`${API_URL}/api/career/${code}`, {
+        method: "GET",
+        headers: {
+            "accept": "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+        .then((res) => res.json()); 
+  
+    return careerMapping; 
+};
+
+//get all possible test results
+export function getAllCareers() {
+    return fetch(`${API_URL}/api/careers`, {
+        method: "GET",
+        headers: {
+            "accept": "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+        .then((res) => res.json())
+        .then((res) => res.careers);
+}
