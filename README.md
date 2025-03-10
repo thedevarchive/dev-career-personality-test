@@ -4,7 +4,15 @@ TBA
 
 # How to Run
 
-TBA
+In the Command Line or Terminal, enter this project's directory and type 
+
+### `npm install`
+
+to install its dependencies, then type
+
+### `npm start`
+
+to run the project. 
 
 # How to Use
 
