@@ -1,6 +1,6 @@
 # About this Project
 
-TBA
+This is Dev Career Personality Test, a project inspired by peachnono's [Career Personality Test](https://github.com/peachnono/dev-personality-test). 
 
 # How to Run
 
