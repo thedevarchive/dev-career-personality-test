@@ -8,6 +8,8 @@ The test does not intend to stereotype people with certain personality traits to
 
 # How to Run
 
+### Before you run this project, make sure you have run dcpt-server. Instructions for running it are listed in its README. 
+
 In the Command Line or Terminal, enter this project's directory and type 
 
 ### `npm install`
@@ -20,11 +22,14 @@ to run the project.
 
 # How to Use
 
-TBA
+Click on TAKE THE TEST to start the test. Otherwise, feel free to navigate through the other links in the navbar to take the test or see all possible results. All test items are multiple choice so select the choice that best fits you. Make sure you answer every question before submitting. If successful, you will see your result. 
 
 # Features
 
-* TBA
+* A test that determines the user's ideal IT career path based on their personality
+* Three navigable web pages 
+* Error handling for questions not answered
+* 
 
 # How to Report Issues
 
