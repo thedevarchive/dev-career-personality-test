@@ -8,7 +8,7 @@ The test does not intend to stereotype people with certain personality traits to
 
 # How to Run
 
-### Before you run this project, make sure you have run dcpt-server. Instructions for running it are listed in its README. 
+### Before you run this project, make sure you have run [dcpt-server](https://github.com/thedevarchive/dcpt-server). Instructions for running it are listed in its README. 
 
 In the Command Line or Terminal, enter this project's directory and type 
 
