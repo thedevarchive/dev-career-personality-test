@@ -22,14 +22,16 @@ to run the project.
 
 # How to Use
 
-Click on TAKE THE TEST to start the test. Otherwise, feel free to navigate through the other links in the navbar to take the test or see all possible results. All test items are multiple choice so select the choice that best fits you. Make sure you answer every question before submitting. If successful, you will see your result. 
+On the home page, click on TAKE THE TEST to start the test. Otherwise, feel free to navigate through the other links in the navbar to take the test or see all possible results. All test items are multiple choice so select the choice that best fits you. Make sure you answer every question before submitting. If successful, you will see your result. 
 
 # Features
 
 * A test that determines the user's ideal IT career path based on their personality
 * Three navigable web pages 
 * Error handling for questions not answered
-* 
+* Nine possible results
+  * Full Stack Developer, Database Administrator and Cyber Security Expert are just three possible ones… Clone and run this project to find the others!
+  * Each result has their own details, such as motivation, work style and the languages they frequently use at work
 
 # How to Report Issues
 
