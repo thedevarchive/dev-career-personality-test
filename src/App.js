@@ -26,7 +26,7 @@ function App() {
         {/* Navbar is present on all pages
             Item will be highlighted when user is on the item's corresponding page */}
         <Navbar expand="md">
-          <Nav className="me-auto" navbar>
+          <Nav className="me-auto d-flex flex-row" navbar>
             <NavItem>
               <NavLink href="/" style={(currentPage === "/") ? activeStyle : null}>
                 Home

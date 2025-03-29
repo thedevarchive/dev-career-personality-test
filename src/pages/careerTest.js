@@ -67,7 +67,7 @@ export function CareerTest() {
                         <p><strong>{q_id}. {q.question_text}</strong></p>
                         {
                             answerList?.map((answer, index) => (
-                                <p>
+                                <p className="d-flex align-items-center">
                                     <input type="radio" name={q.question_text} value={answer.letter_of_choice} id={`${q_id}-${index}`} onChange={() => onOptionChange(q_id, answer.letter_of_choice)} /> &nbsp;
                                     <label htmlFor={`${q_id}-${index}`}>{answer.letter_of_choice}. {answer.answer_text}</label>
                                 </p>

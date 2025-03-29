@@ -55,10 +55,10 @@ export function Home() {
             <p><em>Disclaimer: This test does not intend to stereotype people in the IT industry; this test only serves to <strong>suggest</strong> an IT career for anyone interested in working in that field.</em></p>
             <Button className="bigButton" href="/takeTest">TAKE THE TEST</Button>
             {/* Icons at the bottom half of the page */}
-            <CardGroup style={{ marginTop: "10px" }}>
+            <CardGroup className="d-flex flex-wrap" style={{ marginTop: "10px" }}>
                 <IconContext.Provider value={{ color: "#00004e", size: 100 }}>
                     {selectedIcons.map((icon) => (
-                        <Card className="homeCard">
+                        <Card className="homeCard w-50 p-2">
                             {icon}
                         </Card>
                     ))}

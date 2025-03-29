@@ -1,7 +1,7 @@
 
 import { Card, CardText, CardTitle } from 'reactstrap';
 import { useEffect, useState } from 'react';
-import { Grid2 } from '@mui/material';
+import { Grid2, useMediaQuery } from '@mui/material';
 
 import { HiMiniCodeBracket } from "react-icons/hi2";
 import { PiBracketsCurly, PiInfinityBold } from 'react-icons/pi';
@@ -16,22 +16,25 @@ import { getAllCareers } from '../api/api';
 
 //mapping of icons to each result in the test
 const iconMapping = {
-    "Front-End Developer": <HiMiniCodeBracket size={70} />, 
-    "Back-End Developer": <PiBracketsCurly size={70} />, 
-    "Full Stack Developer": <ImStack size={70} />, 
-    "DevOps Engineer": <PiInfinityBold size={70} />, 
-    "Database Administrator": <FiDatabase size={70} />, 
-    "Game Developer": <BiJoystick size={70} />, 
+    "Front-End Developer": <HiMiniCodeBracket size={70} />,
+    "Back-End Developer": <PiBracketsCurly size={70} />,
+    "Full Stack Developer": <ImStack size={70} />,
+    "DevOps Engineer": <PiInfinityBold size={70} />,
+    "Database Administrator": <FiDatabase size={70} />,
+    "Game Developer": <BiJoystick size={70} />,
     "QA Tester": <SiTicktick size={70} />,
     "Mobile App Developer": <FaMobileAlt size={70} />,
     "Cyber Security Expert": <SlLock size={70} />,
-}; 
+};
 
 //This page lists all possible results from taking the test
 export function DevCareers() {
     //Contains title for title bar
     const [title, setTitle] = useState("Careers in IT");
     const [careers, setCareers] = useState([]);
+
+    // boolean value that checks if website is viewed using a mobile device 
+    const isMobile = useMediaQuery("(max-width:600px)");
 
     //get all possible results 
 
@@ -52,7 +55,7 @@ export function DevCareers() {
                         Will add images at some point in the future */
                     careers.map((career) => {
                         return (
-                            <Grid2 size={4}>
+                            <Grid2 size={isMobile ? 12 : 4}>
                                 <Card className="careerCard">
                                     <CardTitle className='ctStyle'><strong>{career.career_name}</strong></CardTitle>
                                     <CardText>{iconMapping[career.career_name] || " "}</CardText>

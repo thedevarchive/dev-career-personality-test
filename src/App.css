@@ -16,8 +16,8 @@
   background-color: #001695 !important;
 }
 
-.nav-item:not(:first-child) {
-  margin-left: 50px !important;
+.nav-item {
+  margin-right: 50px !important;
 }
 
 .nav-link {
@@ -88,4 +88,23 @@ p.card-text {
   color: white !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
+}
+
+@media (max-width: 600px) {
+  p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 2.5rem;
+    color: #00004e !important; 
+  }
+
+  .btn.bigButton {
+    font-size: 22px;
+    width: 50%;
+  }
+
+  input[type="radio"] {
+    width: 30px;
+    height: 30px;
+  }
 }
