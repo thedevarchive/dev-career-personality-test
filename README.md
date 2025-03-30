@@ -6,7 +6,8 @@ It functions similarly to personality tests like the Enneagram and MBTI tests, b
 
 __Disclaimer:__ The test does not intend to stereotype people with certain personality traits to take up a particular role; this test only offers suggestions for people who are undecided on which career path to take. 
 
-
+Made with 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
 # How to Run
 
