@@ -52,6 +52,10 @@ input[type="radio"] {
   width: 25px;
 }
 
+.answer {
+  margin-left: 15%;
+}
+
 .error {
   margin: 0 !important;
   color: maroon !important;
@@ -76,7 +80,7 @@ input[type="radio"] {
 .card.careerCard {
   background-color: #001695; 
   margin: 0;
-  min-height: 450px;
+  min-height: 600px;
 }
 
 .card-title.ctStyle {

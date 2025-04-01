@@ -9,7 +9,7 @@ import { FiDatabase } from "react-icons/fi";
 import { ImStack } from "react-icons/im";
 import { BiJoystick } from "react-icons/bi";
 import { SiTicktick } from "react-icons/si";
-import { FaMobileAlt } from "react-icons/fa";
+import { FaCubes, FaMobileAlt } from "react-icons/fa";
 import { SlLock } from "react-icons/sl";
 
 //Home page
@@ -30,7 +30,8 @@ export function Home() {
         <BiJoystick />,
         <SiTicktick />,
         <FaMobileAlt />,
-        <SlLock />
+        <SlLock />,
+        <FaCubes /> 
     ];
 
     // Function to shuffle and select 6 random icons

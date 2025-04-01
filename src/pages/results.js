@@ -9,7 +9,7 @@ import { FiDatabase } from "react-icons/fi";
 import { ImStack } from "react-icons/im";
 import { BiJoystick } from "react-icons/bi";
 import { SiTicktick } from "react-icons/si";
-import { FaMobileAlt } from "react-icons/fa";
+import { FaCubes, FaMobileAlt } from "react-icons/fa";
 import { SlLock } from "react-icons/sl";
 
 import { getCareer } from '../api/api';
@@ -25,6 +25,7 @@ const iconMapping = {
     "QA Tester": <SiTicktick size={250} />,
     "Mobile App Developer": <FaMobileAlt size={250} />,
     "Cyber Security Expert": <SlLock size={250} />,
+    "Blockchain Developer": <FaCubes size={250} />,
 }; 
 
 //Show result of personality test
